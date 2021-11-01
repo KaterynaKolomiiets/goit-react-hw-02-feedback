@@ -1,0 +1,21 @@
+.button {
+  padding: 10px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  background-color: wheat;
+  cursor: pointer;
+  transition: background-color 0.7s;
+  text-transform: capitalize;
+  min-width: 100px;
+  border: wheat 2px ridge;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.button:not(:last-child) {
+  margin-right: 10px;
+}
+.button:hover,
+.button:focus {
+  background-color: orangered;
+  border-color: orangered;
+}
