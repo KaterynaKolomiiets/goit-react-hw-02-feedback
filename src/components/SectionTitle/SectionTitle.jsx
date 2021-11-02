@@ -1,19 +1,17 @@
 import s from "./SectionTitle.module.css";
 import PropTypes from "prop-types";
 
-const SectionTitle = (props) => {
+const SectionTitle = ({title, children}) => {
   return (
     <section className={s.section}>
-      <h1 className={s.header1}>{props.title}</h1>
-      {props.children}
+      <h1 className={s.header1}>{title}</h1>
+      {children}
     </section>
   );
 };
 
 SectionTitle.propTypes = {
-  props: PropTypes.shape({
-    title: PropTypes.string,
-    children: PropTypes.objectOf(PropTypes.element),
-  }),
+  title: PropTypes.string,
+  children: PropTypes.element,
 };
 export default SectionTitle;

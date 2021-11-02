@@ -16,9 +16,9 @@ class App extends Component {
   getState() {
     return this.state;
   }
-  handleClick = (e) => {
+  handleClick = ({ target: { name } }) => {
     this.setState((prevState) => ({
-      [e.target.name]: prevState[e.target.name] + 1,
+      [name]: prevState[name] + 1,
     }));
   };
   countTotalFeedback() {
@@ -35,12 +35,12 @@ class App extends Component {
       <div className="App container">
         <SectionTitle title={"Please leave feedback"}>
           <FeedbackOptions
-            options={["good", "neutral", "bad"]}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handleClick}
           />
         </SectionTitle>
 
-        {Object.values(this.state).some((item) => item) ? (
+        {this.countTotalFeedback() ? (
           <SectionTitle title={"Statistics"}>
             <Statistics
               good={this.state.good}
